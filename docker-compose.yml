@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  traefik:
+    restart: ${DOCKER_RESTART_POLICY}
+    image: ${DOCKER_IMAGE}
+    command: --providers.docker
+    init: true   
+    env_file:
+      - ${DOCKER_GENERATED_ENV_FILE:-./env/defaults}    
+    ports:
+      - ${TRAEFIK_HTTP_PORT}:80
+    networks:
+      - frontend      
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging:
+      driver: ${DOCKER_LOGGING_DRIVER}
+      options:
+        max-file: ${DOCKER_LOGGING_MAX_FILE}
+        max-size: ${DOCKER_LOGGING_MAX_SIZE}
+
+networks:
+  frontend:
+    name: ${DOCKER_FRONTEND_NETWORK_NAME}  
