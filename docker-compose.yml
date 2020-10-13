@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   traefik:
+    container_name: ${COMPOSE_PROJECT_NAME}_${SERVICE_NAME}
     restart: ${DOCKER_RESTART_POLICY}
     image: ${DOCKER_IMAGE}
     command: --providers.docker
@@ -11,7 +12,9 @@ services:
     ports:
       - ${TRAEFIK_HTTP_PORT}:80
     networks:
-      - frontend      
+      frontend:
+        aliases: 
+          - ${SERVICE_NAME}      
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     logging:
