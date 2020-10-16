@@ -5,7 +5,9 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}_${SERVICE_NAME}
     restart: ${DOCKER_RESTART_POLICY}
     image: ${DOCKER_IMAGE}
-    command: --providers.docker
+    command: 
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
     init: true   
     env_file:
       - ${DOCKER_GENERATED_ENV_FILE:-./env/defaults}    
