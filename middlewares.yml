@@ -1,0 +1,6 @@
+http:
+  middlewares:
+    defaultCors:
+      headers:
+        customResponseHeaders:
+          Access-Control-Allow-Origin: {{ env "TRAEFIK_CORS_DOMAINS" }}

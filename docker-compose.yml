@@ -9,10 +9,6 @@ services:
       context: ./
       args:
         - DOCKER_BASE_IMAGE    
-    command: 
-      - --providers.docker
-      - --providers.docker.exposedbydefault=false
-      - --ping=true
     init: true   
     env_file:
       - ${DOCKER_GENERATED_ENV_FILE:-./env/defaults}    
