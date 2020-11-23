@@ -5,6 +5,7 @@ services:
     command: 
       - --providers.docker
       - --providers.docker.exposedbydefault=false
+      - --ping=true
       - --api.insecure=true 
     ports:
       - ${TRAEFIK_HTTP_PORT}:80
