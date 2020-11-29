@@ -33,3 +33,4 @@ services:
 networks:
   frontend:
     name: ${DOCKER_FRONTEND_NETWORK_NAME}  
+    external: true
