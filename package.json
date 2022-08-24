@@ -1,6 +1,6 @@
 {
   "name": "@bmd-studio/genstack-traefik",
-  "private": true,
+  "version": "2.3.2",
   "scripts": {
     "setup": "yarn install",
     "start:docker": "yarn dc:dev up",
