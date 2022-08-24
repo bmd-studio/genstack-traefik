@@ -1,5 +1,5 @@
 {
-  "name": "@bmd-studio/genstack-container-traefik",
+  "name": "@bmd-studio/genstack-traefik",
   "private": true,
   "scripts": {
     "setup": "yarn install",
